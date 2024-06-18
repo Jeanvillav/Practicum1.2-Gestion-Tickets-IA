@@ -1,9 +1,12 @@
-Problemas con el pago: 1,
-Problemas con el viaje: 2,
-Problemas de seguridad: 1,
-Problemas con la cuenta/app': 2,
-Problemas de comportamiento: 2,
+contexto de usurios: 
+
+Problemas con el pago: inmediato ,
+Problemas con el viaje: media,
+Problemas de seguridad: inmediata,
+Problemas con la cuenta/app': alta,
+Problemas de comportamiento: urgente,
 Mensaje de operador: 3,
-Objetos perdidos:
+Objetos perdidos urgente
 Otros problemas: 3
+
 prioridades: baja, media, alta, inmedita y urgente 
