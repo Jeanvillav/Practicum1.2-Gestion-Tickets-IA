@@ -4,4 +4,6 @@ Problemas de seguridad: 1,
 Problemas con la cuenta/app': 2,
 Problemas de comportamiento: 2,
 Mensaje de operador: 3,
+Objetos perdidos:
 Otros problemas: 3
+prioridades: baja, media, alta, inmedita y urgente 
