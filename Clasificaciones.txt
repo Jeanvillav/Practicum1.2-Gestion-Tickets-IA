@@ -1,0 +1,7 @@
+Problemas con el pago: 1,
+Problemas con el viaje: 2,
+Problemas de seguridad: 1,
+Problemas con la cuenta/app': 2,
+Problemas de comportamiento: 2,
+Mensaje de operador: 3,
+Otros problemas: 3
