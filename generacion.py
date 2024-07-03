@@ -1,70 +1,52 @@
 import pandas as pd
 import numpy as np
-import pickle
 import tensorflow as tf
-from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import pickle
 
-# Cargar el archivo CSV con los nuevos datos
-new_data_path = 'contactos2024_limpio.csv'
+# Cargar el modelo, tokenizer y label encoder
+model = tf.keras.models.load_model('modelo_ticketing.keras')
 
-try:
-    # Intentamos leer el archivo CSV con ';' como delimitador
-    new_data = pd.read_csv(new_data_path, delimiter=';')
-except Exception as e:
-    print(f"Error leyendo el archivo CSV: {e}")
-    exit()
-
-# Verificar si las columnas necesarias existen
-required_columns = ['motivo', 'mensaje']
-for col in required_columns:
-    if col not in new_data.columns:
-        print(f"El archivo CSV no contiene la columna '{col}'. Verifica el formato del archivo.")
-        exit()
-
-# Combinar 'mensaje' y 'motivo' en una sola columna para el preprocesamiento
-new_data['mensaje_completo'] = new_data['motivo'].astype(str) + ' ' + new_data['mensaje'].astype(str)
-
-# Cargar el modelo previamente entrenado
-model_path = 'modelo_ticketing.keras'
-model = tf.keras.models.load_model(model_path)
-
-# Cargar el Tokenizer utilizado durante el entrenamiento
-tokenizer_path = 'tokenizer.pkl'
-with open(tokenizer_path, 'rb') as f:
+with open('tokenizer.pkl', 'rb') as f:
     tokenizer = pickle.load(f)
 
-# Preprocesar los nuevos datos
-X_new = new_data['mensaje_completo'].astype(str).values
-X_new_seq = tokenizer.texts_to_sequences(X_new)
-max_length = 100
-X_new_pad = pad_sequences(X_new_seq, maxlen=max_length)
+label_classes = np.load('classes.npy', allow_pickle=True)
 
-# Clasificar los nuevos mensajes
-predictions = model.predict(X_new_pad)
-
-# Decodificar las predicciones
-label_encoder = LabelEncoder()
-label_encoder.classes_ = np.load('classes.npy', allow_pickle=True)
-predicted_categories = label_encoder.inverse_transform([np.argmax(pred) for pred in predictions])
-
-# Asignar prioridades a las categorías predichas
+# Definir las categorías y sus prioridades
 category_priority = {
-    'Problemas con el pago': 1,
-    'Problemas con el viaje': 2,
-    'Problemas de seguridad': 1,
-    'Problemas con la cuenta/app': 2,
-    'Problemas de comportamiento': 2,
-    'Mensaje de operador': 3,
-    'Otros problemas': 3
+    'problemas con el pago': 'Inmediata',
+    'problemas con el viaje': 'Alta',
+    'problemas de seguridad': 'Inmediata',
+    'problemas con la cuenta/app': 'Alta',
+    'problemas de comportamiento': 'Urgente',
+    'mensaje de operador': 'Baja',
+    'otros problemas': 'Baja',
+    'objetos perdidos': 'Urgente',
+    'vocabulario inadecuado': 'Alta'
 }
 
-priorities = [category_priority.get(category, 3) for category in predicted_categories]
+# Cargar el archivo CSV
+file_path = 'contactos2024_limpio.csv'
+data = pd.read_csv(file_path, delimiter=';')
 
-# Agregar las categorías predichas y sus prioridades al DataFrame original
-new_data['categoria_predicha'] = predicted_categories
-new_data['prioridad_predicha'] = priorities
+# Convertir todos los textos a minúsculas y combinar motivo y mensaje
+data['mensaje_completo'] = data.apply(lambda row: f"{row['motivo']} {row['mensaje']}".lower(), axis=1)
 
-# Guardar los resultados en un nuevo archivo CSV
-output_file_path = 'resultados_prediccion.csv'
-new_data.to_csv(output_file_path, index=False)
+# Tokenizar y secuenciar el texto
+X_data_seq = tokenizer.texts_to_sequences(data['mensaje_completo'])
+max_length = 100
+X_data_pad = pad_sequences(X_data_seq, maxlen=max_length)
+
+# Hacer predicciones
+predictions = model.predict(X_data_pad)
+predicted_categories = [label_classes[np.argmax(pred)] for pred in predictions]
+
+# Agregar las predicciones al DataFrame
+data['categoria_predicha'] = predicted_categories
+data['prioridad_predicha'] = data['categoria_predicha'].map(category_priority)
+
+# Guardar el archivo CSV con las predicciones
+output_file_path = 'contactos2024_clasificado.csv'
+data.to_csv(output_file_path, index=False, sep=';')
+
+print(f'Archivo clasificado guardado en: {output_file_path}')
