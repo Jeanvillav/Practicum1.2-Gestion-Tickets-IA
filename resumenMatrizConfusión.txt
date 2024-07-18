@@ -1,66 +1,32 @@
-Mensaje de operador:
+Categorías más frecuentes:
 
-Correctamente clasificados: 27
-Clasificados erróneamente como "problemas de seguridad": 2
+"Problemas con el viaje" es la categoría más común, con 368 casos correctamente clasificados.
+"Otros problemas" es la segunda más frecuente, con 91 casos correctamente identificados.
 
-Objetos perdidos:
 
-Correctamente clasificados: 15
-Clasificados erróneamente como "otros problemas": 1
-Clasificados erróneamente como "problemas de comportamiento": 4
+Precisión alta:
 
-Otros problemas:
+"Mensaje de operador", "Objetos perdidos" y "Vocabulario inadecuado" tienen una precisión del 100%.
+"Problemas con la cuenta/app" muestra una alta precisión con 43 casos correctos de 49 totales.
 
-Correctamente clasificados: 91
-Clasificados erróneamente como "problemas con el viaje": 54
-Clasificados erróneamente como "problemas de comportamiento": 1
-Clasificados erróneamente como "problemas de seguridad": 3
-Clasificados erróneamente como "vocabulario inadecuado": 4
 
-Problemas con el pago:
+Áreas de confusión:
 
-Correctamente clasificados: 33
-Clasificados erróneamente como "otros problemas": 4
-Clasificados erróneamente como "problemas con el viaje": 12
-Clasificados erróneamente como "problemas de seguridad": 2
-Problemas con el viaje:
+Hay confusión significativa entre "Otros problemas" y "Problemas con el viaje" (54 casos).
+"Problemas de comportamiento" se confunde a menudo con "Problemas con el viaje" (18 casos).
 
-Correctamente clasificados: 368
-Clasificados erróneamente como "otros problemas": 22
-Clasificados erróneamente como "problemas de comportamiento": 4
-Clasificados erróneamente como "problemas con la cuenta/app": 2
-Clasificados erróneamente como "problemas de seguridad": 2
-Clasificados erróneamente como "vocabulario inadecuado": 8
 
-Problemas con la cuenta/app:
+Categorías menos frecuentes:
 
-Correctamente clasificados: 43
-Clasificados erróneamente como "otros problemas": 4
-Clasificados erróneamente como "problemas de comportamiento": 1
-Clasificados erróneamente como "problemas de seguridad": 1
+"Vocabulario inadecuado" y "Mensaje de operador" tienen pocos casos en total.
 
-Problemas de comportamiento:
 
-Correctamente clasificados: 19
-Clasificados erróneamente como "otros problemas": 7
-Clasificados erróneamente como "problemas con el viaje": 18
-Clasificados erróneamente como "problemas con la cuenta/app": 1
+Oportunidades de mejora:
 
-Problemas de seguridad:
+La clasificación de "Problemas de seguridad" podría mejorarse, con solo 12 casos correctos de 25.
 
-Correctamente clasificados: 12
-Clasificados erróneamente como "otros problemas": 8
-Clasificados erróneamente como "problemas con el viaje": 13
-Vocabulario inadecuado:
+Esta matriz ayuda a identificar dónde el sistema de clasificación es más eficaz y dónde puede necesitar refinamiento para mejorar la precisión general.
 
-Correctamente clasificados: 4
-Clasificados erróneamente como "problemas con el viaje": 2
-
-Resumen y sugerencias de mejora:
-
-Problemas con el viaje tiene la mayor cantidad de instancias correctamente clasificadas (368), lo que indica que el modelo es muy efectivo en esta categoría.
-Otros problemas tiene una alta tasa de clasificación errónea con "problemas con el viaje" (54), lo que sugiere que estas dos categorías pueden tener características similares y el modelo tiene dificultades para diferenciarlas.
-Problemas de comportamiento y problemas de seguridad también muestran confusiones significativas con otras categorías, particularmente con "problemas con el viaje" y "otros problemas".
 Para mejorar el rendimiento del modelo:
 
 Reentrenar el modelo con más datos para las categorías con alta confusión, especialmente "otros problemas" y "problemas de comportamiento".
