@@ -1,0 +1,70 @@
+Mensaje de operador:
+
+Correctamente clasificados: 27
+Clasificados erróneamente como "problemas de seguridad": 2
+
+Objetos perdidos:
+
+Correctamente clasificados: 15
+Clasificados erróneamente como "otros problemas": 1
+Clasificados erróneamente como "problemas de comportamiento": 4
+
+Otros problemas:
+
+Correctamente clasificados: 91
+Clasificados erróneamente como "problemas con el viaje": 54
+Clasificados erróneamente como "problemas de comportamiento": 1
+Clasificados erróneamente como "problemas de seguridad": 3
+Clasificados erróneamente como "vocabulario inadecuado": 4
+
+Problemas con el pago:
+
+Correctamente clasificados: 33
+Clasificados erróneamente como "otros problemas": 4
+Clasificados erróneamente como "problemas con el viaje": 12
+Clasificados erróneamente como "problemas de seguridad": 2
+Problemas con el viaje:
+
+Correctamente clasificados: 368
+Clasificados erróneamente como "otros problemas": 22
+Clasificados erróneamente como "problemas de comportamiento": 4
+Clasificados erróneamente como "problemas con la cuenta/app": 2
+Clasificados erróneamente como "problemas de seguridad": 2
+Clasificados erróneamente como "vocabulario inadecuado": 8
+
+Problemas con la cuenta/app:
+
+Correctamente clasificados: 43
+Clasificados erróneamente como "otros problemas": 4
+Clasificados erróneamente como "problemas de comportamiento": 1
+Clasificados erróneamente como "problemas de seguridad": 1
+
+Problemas de comportamiento:
+
+Correctamente clasificados: 19
+Clasificados erróneamente como "otros problemas": 7
+Clasificados erróneamente como "problemas con el viaje": 18
+Clasificados erróneamente como "problemas con la cuenta/app": 1
+
+Problemas de seguridad:
+
+Correctamente clasificados: 12
+Clasificados erróneamente como "otros problemas": 8
+Clasificados erróneamente como "problemas con el viaje": 13
+Vocabulario inadecuado:
+
+Correctamente clasificados: 4
+Clasificados erróneamente como "problemas con el viaje": 2
+
+Resumen y sugerencias de mejora:
+
+Problemas con el viaje tiene la mayor cantidad de instancias correctamente clasificadas (368), lo que indica que el modelo es muy efectivo en esta categoría.
+Otros problemas tiene una alta tasa de clasificación errónea con "problemas con el viaje" (54), lo que sugiere que estas dos categorías pueden tener características similares y el modelo tiene dificultades para diferenciarlas.
+Problemas de comportamiento y problemas de seguridad también muestran confusiones significativas con otras categorías, particularmente con "problemas con el viaje" y "otros problemas".
+Para mejorar el rendimiento del modelo:
+
+Reentrenar el modelo con más datos para las categorías con alta confusión, especialmente "otros problemas" y "problemas de comportamiento".
+Ajustar los hiperparámetros del modelo para mejorar la precisión.
+Utilizar técnicas de aumento de datos para balancear las categorías menos representadas.
+Revisar y mejorar las características utilizadas para el entrenamiento, buscando aquellas que puedan ayudar a diferenciar mejor entre las categorías con alta confusión.
+Considerar modelos más avanzados o técnicas de ensamblaje que podrían mejorar la precisión global del modelo.

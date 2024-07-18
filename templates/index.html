@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificación de Tickets - SmartTicket</title>
+    <style>
+        body {
+            background-color: #005c78;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1E90FF;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        header img {
+            height: 100px;
+        }
+        header h1 {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 24px;
+        }
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            padding: 20px;
+        }
+        .sidebar img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        main {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #35d3b4;
+            color: #0c5be9;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+        button:hover {
+            background-color: #2ac0a2;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .results h2 {
+            color: #35d3b4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Clipp Logo">
+        <h1>Clasificación de Tickets</h1>
+        <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="Smart Ticket Logo">
+    </header>
+    <div class="content-wrapper">
+        <div class="sidebar">
+            <img src="{{ url_for('static', filename='images/categorias.png') }}" alt="Categorías">
+        </div>
+        <main>
+            <form method="POST">
+                <label for="motivo">Motivo:</label>
+                <input type="text" id="motivo" name="motivo" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                <button type="submit">Clasificar</button>
+            </form>
+            
+            {% if categoria %}
+            <div class="results">
+                <h2>Resultados</h2>
+                <p><strong>Motivo:</strong> {{ motivo }}</p>
+                <p><strong>Mensaje:</strong> {{ mensaje }}</p>
+                <p><strong>Categoría Predicha:</strong> {{ categoria }}</p>
+                <p><strong>Prioridad Predicha:</strong> {{ prioridad }}</p>
+            </div>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

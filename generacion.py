@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 
 # Cargar el modelo, tokenizer y label encoder
-model = tf.keras.models.load_model('modelo_ticketing.keras')
+model = tf.keras.models.load_model('modelo_ticketing_ajustado.keras')
 
 with open('tokenizer.pkl', 'rb') as f:
     tokenizer = pickle.load(f)

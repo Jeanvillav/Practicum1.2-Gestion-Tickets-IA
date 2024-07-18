@@ -33,19 +33,19 @@ def classify_message(message, motivo):
 
     if any(keyword in combined_text for keyword in ["taxímetro alterado", "cobro inadecuado", "cobro excesivo", "cobro", "taxímetro", "costo", "pagar", "pago"]):
         return 'problemas con el pago'
-    elif any(keyword in combined_text for keyword in ["no contesta", "canceló solicitud", "ubicacion", "otro lado", "nunca llegó", "tiempo de espera largo", "no llegó a tiempo", "mal servicio", "vehículo incorrecto", "la unidad tardó demasiado tiempo", "llevó otro cliente", "la unidad no llegó", "vehículo desordenado", "no sale", "cancelo", "pesimo", "no desea la carrera", "no responde", "ya se", "no espera", "se ha ido", "seriedad", "carrera", "cancela", "esperando", "salió", "pide", "se fue", "doble", "sucio", "velocidad"]):
+    elif any(keyword in combined_text for keyword in ["no contesta", "canceló solicitud", "ubicacion", "otro lado", "nunca llegó", "tiempo de espera largo", "no llegó a tiempo", "mal servicio", "vehículo incorrecto", "la unidad tardó demasiado tiempo", "llevó otro cliente", "la unidad no llegó", "vehículo desordenado", "no sale", "cancelo", "pesimo", "no desea la carrera", "no responde", "ya se", "no llego", "no espera", "se ha ido", "seriedad", "carrera", "cancela", "esperando", "salió", "pide", "se fue", "doble", "sucio", "velocidad"]):
         return 'problemas con el viaje'
     elif any(keyword in combined_text for keyword in ["pre-registro", "#quieroserconductor", "#estoydispuestoalcambio"]):
         return 'mensaje de operador'
     elif any(keyword in combined_text for keyword in ["conducción peligrosa", "conducción brusca", "velocidad excesiva", "mal estado de vehículo", "teléfono hablo/chat", "etílico", "borracho", "mareado", "acompañante", "acompañado", "incorrecto", "peleando", "peliando", "loco"]):
         return 'problemas de seguridad'
-    elif any(keyword in combined_text for keyword in ["app", "eliminar cuenta", "no me funciona de manera correcta", "verificación", "ubicación", "dirección"]):
+    elif any(keyword in combined_text for keyword in ["app", "eliminar cuenta", "aplicacion", "aplicación", "no me funciona de manera correcta", "verificación", "ubicación", "dirección"]):
         return 'problemas con la cuenta/app'
-    elif any(keyword in combined_text for keyword in ["olvidó", "olvidado", "perdió", "olvidé", "se me cayó", "recuperar", "pérdida", "extravio", "olvido", "cayeron", "cayo", "perdida", "se me quedó", "se me quedo"]):
+    elif any(keyword in combined_text for keyword in ["olvidó", "olvidado", "perdió", "olvidé", "se me cayó", "recuperar", "pérdida", "extravio", "olvido", "cayeron", "cayo", "perdida", "se me quedó", "se le quedó", "quedó", "se me quedo"]):
         return 'objetos perdidos'
-    elif any(keyword in combined_text for keyword in ["desagradable", "comportamiento", "servicio poco amable", "actitud", "mal cliente", "acoso sexual", "agresivo", "exigente", "majadero", "prepotente", "grosero", "juega", "malcriado", "sexo", "grosero", "prepotente"]):
+    elif any(keyword in combined_text for keyword in ["desagradable", "comportamiento", "servicio poco amable", "actitud", "mal cliente", "acoso sexual", "agresivo", "exigente", "majadero", "prepotente", "grosero", "majadera", "juega", "malcriado", "sexo", "grosero", "mariados", "molesta", "prepotente"]):
         return 'problemas de comportamiento'
-    elif any(keyword in combined_text for keyword in ["hdp", "mmv", "vrg", "hp", "crvrg", "puta", "mrd", "verga", "hijo", "perra", "malparido", "pendejo", "caraverga", "gil"]):
+    elif any(keyword in combined_text for keyword in ["hdp", "mmv", "vrg", "hp", "crvrg", "puta", "mrd", "verga", "hijo", "perra", "malparido", "pendejo", "caraverga", "meco", "gil"]):
         return 'vocabulario inadecuado'
     elif any(keyword in combined_text for keyword in ["bien", "excelente", "buen"]):
         return 'otros problemas'

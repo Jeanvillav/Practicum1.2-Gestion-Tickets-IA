@@ -1,15 +1,7 @@
-contexto de usurios: 
-
-Problemas con el pago: inmediato ,
-Problemas con el viaje: alta,
-Problemas de seguridad: inmediato,
-Problemas con la cuenta/app': alta,
-Problemas de comportamiento: urgente,
-Mensaje de operador: baja,
-Objetos perdidos urgente
-Otros problemas: baja
-vocabulario inadecuado: alta
-
-
-mas de 3 estrellas en problemas con el viaje tienen una prioridad baja 
-prioridades: baja, media, alta, inmedita y urgente 
+Problemas con el pago: 1,
+Problemas con el viaje: 2,
+Problemas de seguridad: 1,
+Problemas con la cuenta/app': 2,
+Problemas de comportamiento: 2,
+Mensaje de operador: 3,
+Otros problemas: 3
